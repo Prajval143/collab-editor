@@ -5,3 +5,5 @@ Flask-SQLAlchemy
 python-dotenv
 eventlet
 requests
+gunicorn
+
