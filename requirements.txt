@@ -3,7 +3,6 @@ Flask-SocketIO
 Flask-Login
 Flask-SQLAlchemy
 python-dotenv
-eventlet
 requests
 gunicorn
 

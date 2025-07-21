@@ -6,7 +6,7 @@ from config import Config
 
 db = SQLAlchemy()
 login_manager = LoginManager()
-socketio = SocketIO(cors_allowed_origins="*")
+socketio = SocketIO(cors_allowed_origins="*" , async_mode="threading")
 
 def create_app():
     app = Flask(__name__ , template_folder='templates', static_folder='static')
