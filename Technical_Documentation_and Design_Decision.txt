@@ -1,0 +1,66 @@
+Collab-Editor: Technical Documentation
+Architecture Overview
+The collab-editor is a web-based collaborative text editor built using Flask. The project follows a modular structure, separating concerns into distinct files and folders:
+
+Entry Point:
+run.py initializes and runs the Flask application.
+
+Configuration:
+config.py manages app configuration, including secret keys and database URIs.
+
+Application Package:
+app/ contains the core logic:
+
+__init__.py: Initializes the Flask app, database, and registers blueprints.
+models.py: Defines database models for users and documents.
+auth.py: Handles user authentication (login, registration).
+routes.py: Manages HTTP routes for document editing and dashboard.
+ws.py: Implements WebSocket logic for real-time collaboration.
+ai.py: Integrates AI features (e.g., text summarization or suggestions).
+Static and Templates:
+
+static/: Contains CSS files.
+templates/: Contains HTML templates for UI.
+Database:
+
+SQLite database stored in instance/db.sqlite3.
+
+
+
+Design Decisions
+Modular Flask App:
+The project is organized into modules (ai.py, auth.py, models.py, routes.py, ws.py) within the app/ directory. This separation allows for easier maintenance and future expansion.
+
+Blueprints and Initialization:
+The use of an __init__.py in app/ suggests Flask blueprints or a factory pattern, which helps keep route and feature logic isolated and manageable.
+
+WebSocket Support:
+Real-time collaboration is implemented in ws.py, enabling multiple users to edit documents simultaneously.
+
+Authentication:
+User login and registration are handled in auth.py, with templates for both (login.html, register.html). This keeps authentication logic separate from other concerns.
+
+AI Features:
+The presence of ai.py indicates planned or implemented AI-powered features, such as smart suggestions or summarization.
+
+Database Choice:
+SQLite (instance/db.sqlite3) is used for simplicity and ease of setup, suitable for development and small-scale deployment.
+
+Static and Template Separation:
+CSS is kept in static/style.css, and HTML templates are in templates/, following Flask conventions for clean separation of concerns.
+
+Challenges Faced
+Real-Time Synchronization:
+Ensuring document consistency across users in real time is complex, requiring careful event handling and conflict resolution in ws.py.
+
+Session and Security:
+Managing secure user sessions, especially with concurrent WebSocket connections, is challenging and requires robust authentication and session management.
+
+Scalability:
+SQLite is not ideal for high concurrency or large-scale deployments. Scaling WebSocket connections and database access would require architectural changes.
+
+AI Integration:
+Integrating AI features without blocking the main application thread likely required asynchronous processing and careful API design.
+
+Web Security:
+Protecting against CSRF, XSS, and other vulnerabilities is essential, especially with user-generated content and authentication flows.
