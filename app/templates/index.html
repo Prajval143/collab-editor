@@ -58,6 +58,8 @@
         const editor = document.getElementById("editor");
         const suggestion = document.getElementById("suggestion");
 
+        
+
         let timeoutId;
 
         editor.addEventListener("input", () => {
@@ -66,6 +68,8 @@
                 socket.emit("edit", { content: editor.value });
             }, 500); // Wait 500ms after typing stops
         });
+
+        console.log(data.suggestion)
 
         socket.on("update", data => {
             editor.value = data.content;
