@@ -52,8 +52,16 @@ collab-editor/
    python run.py
    ```
 
-3. **Access the editor:**
+3. **Access the editor locally:**
    Open your browser and go to `http://localhost:5000`
+
+## Live Demo
+
+You can try Collab-Editor online:
+
+- **Register:** [https://collab-editor-rhfi.onrender.com/register](https://collab-editor-rhfi.onrender.com/register)
+- **Login:** [https://collab-editor-rhfi.onrender.com/login](https://collab-editor-rhfi.onrender.com/login)
+- **Use the Editor:** [https://collab-editor-rhfi.onrender.com/](https://collab-editor-rhfi.onrender.com/)
 
 ## Design Decisions
 
@@ -73,4 +81,4 @@ collab-editor/
 
 ## License
 
-This project is for educational purposes.
+This project is for educational
