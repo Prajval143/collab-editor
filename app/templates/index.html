@@ -53,14 +53,18 @@
     <h2>CollabPad</h2>
     <textarea id="editor">{{ content }}</textarea>
     <p id="suggestion">Start typing... AI suggestions will appear here.</p>
-
     <script>
         const socket = io();
         const editor = document.getElementById("editor");
         const suggestion = document.getElementById("suggestion");
 
+        let timeoutId;
+
         editor.addEventListener("input", () => {
-            socket.emit("edit", { content: editor.value });
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                socket.emit("edit", { content: editor.value });
+            }, 500); // Wait 500ms after typing stops
         });
 
         socket.on("update", data => {
