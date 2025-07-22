@@ -69,9 +69,10 @@
             }, 500); // Wait 500ms after typing stops
         });
 
-        console.log(data.suggestion)
+        
 
         socket.on("update", data => {
+            console.log(data.suggestion);
             editor.value = data.content;
             suggestion.innerText = data.suggestion || "No suggestions at the moment.";
         });
