@@ -32,4 +32,4 @@ def socketio_events(socketio):
         db.session.commit()
         snippet = content[-200:] if len(content) > 200 else content
         suggestion = get_suggestion(snippet)
-        emit("update", {"content": content, "suggestion": suggestion}, broadcast=True)
+        emit("update", {"content": content, "suggestion": suggestion}, broadcast=True, include_self=False)
